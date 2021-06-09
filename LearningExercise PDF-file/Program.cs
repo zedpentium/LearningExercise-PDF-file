@@ -12,17 +12,16 @@ namespace LearningExercise_PDF_file
                 try
                 {
                     Console.Clear();
-                    Console.WriteLine("----* Välkommen till Eric R's Learning Exercise PDF programmet *----\n");
-                    Console.WriteLine("Välj funktion:");
-                    Console.WriteLine();
+                    Console.WriteLine("----* Welcome to Eric R's Learning Exercise PDF program *----\n");
+                    Console.WriteLine("Choose function:\n");
                     Console.WriteLine("1) Run Exercise 1");
                     Console.WriteLine("2) Run Exercise 2");
                     Console.WriteLine("3) Run Exercise 3");
                     Console.WriteLine("4) Run Exercise 4");
-                    Console.WriteLine("-1) Avsluta programmet");
+                    Console.WriteLine("5) Run Exercise 5");
+                    Console.WriteLine("-1) Quit program");
 
-                    Console.Write("\r\nSkriv in NR på menyval & tryck enter: ");
-                    //Console.Write("Enter assignment number (or -1 to exit): ");
+                    Console.WriteLine("\nType in a number from the menu & press enter: ");
 
                     var assignmentChoice = int.Parse(Console.ReadLine() ?? "");
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -39,6 +38,9 @@ namespace LearningExercise_PDF_file
                             break;
                         case 4:
                             RunExerciseFour();
+                            break;
+                        case 5:
+                            RunExerciseFive();
                             break;
                         case -1:
                             keepAlive = false;
@@ -137,5 +139,31 @@ namespace LearningExercise_PDF_file
             Console.WriteLine($"And here is the output after all string manipulation:\n{strOutput.Remove(strIndexOf)}dog\n");
         }
 
+        private static void RunExerciseFive()
+        {
+            Console.Clear();
+            
+            // Final output to screen must be [1,4,5,6,7,8,9,10]
+
+            string str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
+
+            Console.WriteLine($"Here is the given string:\n{str}\n\n");
+
+            int strIndexOf1 = str.IndexOf("[");
+            int strIndexOf2 = str.IndexOf("]") + 1;
+
+            string strNrPart = str.Substring(strIndexOf1, (strIndexOf2 - strIndexOf1));
+
+            strIndexOf1 = strNrPart.IndexOf(",2,3");
+
+            string strRemove = strNrPart.Remove(strIndexOf1, 4);
+
+            strIndexOf1 = strRemove.IndexOf("5") + 1;
+
+            string strOutput = strRemove.Insert(strIndexOf1, ",6,7,8,9,10");
+
+            Console.WriteLine($"Output after string manipulation: {strOutput}");
+
+        }
     }
 }
