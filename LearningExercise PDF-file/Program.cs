@@ -15,10 +15,10 @@ namespace LearningExercise_PDF_file
                     Console.WriteLine("----* Välkommen till Eric R's Learning Exercise PDF programmet *----\n");
                     Console.WriteLine("Välj funktion:");
                     Console.WriteLine();
-                    Console.WriteLine("1) Run Exercise One");
-                    Console.WriteLine("2) Run Exercise Two");
-                    Console.WriteLine("3) Run Exercise Three");
-                    Console.WriteLine("4) Tom");
+                    Console.WriteLine("1) Run Exercise 1");
+                    Console.WriteLine("2) Run Exercise 2");
+                    Console.WriteLine("3) Run Exercise 3");
+                    Console.WriteLine("4) Run Exercise 4");
                     Console.WriteLine("-1) Avsluta programmet");
 
                     Console.Write("\r\nSkriv in NR på menyval & tryck enter: ");
@@ -36,11 +36,13 @@ namespace LearningExercise_PDF_file
                             break;
                         case 3:
                             RunExerciseThree();
-                            // call your assignment method here!
+                            break;
+                        case 4:
+                            RunExerciseFour();
                             break;
                         case -1:
                             keepAlive = false;
-                            Environment.Exit(0); // jag la till för snabbare avslut än att få "Hit key to continue" innan avslut
+                            Environment.Exit(0); // added to quicker finish program and nto have "Hit key to continue" before quit
                             break;
                         default:
                             Console.ForegroundColor = ConsoleColor.Red;
@@ -98,6 +100,41 @@ namespace LearningExercise_PDF_file
             string sLastName = Console.ReadLine();
 
             Console.WriteLine($"\n\n{sFirstName} {sLastName}\n\n");
+        }
+
+        private static void RunExerciseFour()
+        {
+
+            Console.Clear();
+
+            /* Final output to screen:
+            The brown fox jumped over the lazy dog
+            */
+
+            string str = "The quick fox Jumped Over the DOG";
+            string strOutput = ""; // As stated in exercise PDF, and empty string
+
+            // this is output info of what the string "str" contain
+            Console.WriteLine($"Here is the str string variable:\n{str}\n");
+            
+            // start of string manipulation
+            strOutput = str.Replace("quick", "brown");
+
+            int strIndexOf = strOutput.IndexOf("Jumped");
+
+            string strSubWord = strOutput.Substring(strIndexOf, 6);
+
+            strOutput = strOutput.Replace(strSubWord, "jumped");
+
+            strOutput = strOutput.Replace("Over", "over");
+
+            strIndexOf = strOutput.IndexOf("DOG");
+
+            strOutput = strOutput.Insert(strIndexOf, "lazy ");
+
+            strIndexOf = strOutput.IndexOf("DOG");
+
+            Console.WriteLine($"And here is the output after all string manipulation:\n{strOutput.Remove(strIndexOf)}dog\n");
         }
 
     }
