@@ -91,10 +91,10 @@ namespace LearningExercise_PDF_file
 
             Console.Clear(); 
             
-            Console.WriteLine("Enter your first name: ");
+            Console.Write("Enter your first name: ");
             string sFirstName = Console.ReadLine();
 
-            Console.WriteLine("\nEnter your last name: ");
+            Console.Write("Enter your last name: ");
             string sLastName = Console.ReadLine();
 
             Console.WriteLine($"\n\n{sFirstName} {sLastName}\n\n");
