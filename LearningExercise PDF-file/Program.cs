@@ -17,7 +17,7 @@ namespace LearningExercise_PDF_file
                     Console.WriteLine();
                     Console.WriteLine("1) Run Exercise One");
                     Console.WriteLine("2) Run Exercise Two");
-                    Console.WriteLine("3) Tom");
+                    Console.WriteLine("3) Run Exercise Three");
                     Console.WriteLine("4) Tom");
                     Console.WriteLine("-1) Avsluta programmet");
 
@@ -35,10 +35,12 @@ namespace LearningExercise_PDF_file
                             RunExerciseTwo();
                             break;
                         case 3:
+                            RunExerciseThree();
                             // call your assignment method here!
                             break;
                         case -1:
                             keepAlive = false;
+                            Environment.Exit(0); // jag la till för snabbare avslut än att få "Hit key to continue" innan avslut
                             break;
                         default:
                             Console.ForegroundColor = ConsoleColor.Red;
@@ -64,6 +66,7 @@ namespace LearningExercise_PDF_file
             string sFirstName = "Eric";
             string sLastName = "Rönnhult";
 
+            Console.Clear();
             Console.WriteLine($"Hello {sFirstName} {sLastName}! I’m glad to inform you that you are the test subject of my very first assignment!");
 
             //Console.WriteLine("You sucessfully ran excercise one!");
@@ -71,7 +74,30 @@ namespace LearningExercise_PDF_file
 
         private static void RunExerciseTwo()
         {
-            Console.WriteLine("You sucessfully ran excercise two!");
+            DateTime vToday = DateTime.Today;
+            DateTime vTomorrow = DateTime.Today.AddDays(+1);
+            DateTime vYesterday = DateTime.Today.AddDays(-1);
+
+            Console.Clear();
+            Console.WriteLine($"Todays date is {vToday.ToString("yyyy/MM/dd")}\n\n");
+            Console.WriteLine($"Tomorrows date is {vTomorrow.ToString("yyyy/MM/dd")}\n\n");
+            Console.WriteLine($"Yesterdays date was {vYesterday.ToString("yyyy/MM/dd")}\n\n");
+
+            //Console.WriteLine("You sucessfully ran excercise two!");
+        }
+
+        private static void RunExerciseThree()
+        {
+
+            Console.Clear(); 
+            
+            Console.WriteLine("Enter your first name: ");
+            string sFirstName = Console.ReadLine();
+
+            Console.WriteLine("\nEnter your last name: ");
+            string sLastName = Console.ReadLine();
+
+            Console.WriteLine($"\n\n{sFirstName} {sLastName}\n\n");
         }
 
     }
