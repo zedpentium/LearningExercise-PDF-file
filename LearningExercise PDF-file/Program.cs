@@ -103,8 +103,10 @@ namespace LearningExercise_PDF_file
                     Console.ResetColor();
                 }
             }
-        }
+        } // End Main
 
+
+        // Start methods
         private static void RunExerciseOne()
         {
             string sFirstName = "Eric";
@@ -234,15 +236,15 @@ namespace LearningExercise_PDF_file
 
             Console.WriteLine($"\nOutput result of {int1} & {int2}");
             if (int1 > int2)
-                {
+            {
                 intBig = int1;
                 intSmall = int2;
-                }
+            }
             else
-                {
+            {
                 intBig = int2;
                 intSmall = int1;
-                }
+            }
             Console.WriteLine($"\n\nBiggest: {intBig}");
             Console.WriteLine($"Smallest: {intSmall}");
 
@@ -252,14 +254,33 @@ namespace LearningExercise_PDF_file
             Console.WriteLine($"Sum (+): {intSum}");
             intProd = int1 * int2;
             Console.WriteLine($"Product (*): {intProd}");
-            intRat = int1 / int2;
+            intRat = intBig / intSmall;
             Console.WriteLine($"Ratio (/): {intRat}");
         }
 
         private static void RunExercise7()
         {
+            Console.Clear();
+            Console.WriteLine("-- Calculations of area of a circle & volume of a sphere with radius user input--\n");
+            Console.Write("Enter radius: ");
+            string str1 = Console.ReadLine();
+            double.TryParse(str1, out double dRadius);
+
+
+            double dPi = Math.PI;
+            double dCircleA = (dRadius * dRadius) * dPi;
+
+            double dSphereV = (4 / (double)3) * dPi * Math.Pow(dRadius,3);
+
+            Console.WriteLine($"\nA circle with a radius of {dRadius}.\nArea: {dCircleA}\n");
+
+            Console.WriteLine($"\n\nA sphere with a radius of {dRadius}.\nVolume: {dSphereV}\n");
 
         }
+
+        // End methods
+
+
     }
 }
 
