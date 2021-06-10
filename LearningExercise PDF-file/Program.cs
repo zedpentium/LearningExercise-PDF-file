@@ -61,10 +61,10 @@ namespace LearningExercise_PDF_file
                        case 8:
                             RunExercise8();
                             break;
-                        /* case 9:
+                       case 9:
                             RunExercise9();
                             break;
-                        case 10:
+                        /*case 10:
                             RunExercise10();
                             break;
                         case 11:
@@ -296,9 +296,76 @@ namespace LearningExercise_PDF_file
 
             Console.WriteLine($"\n{dNrIn} power of 10 is: {dNrPow10}\n");
         }
-            // End methods
+
+        private static void RunExercise9()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Restaurant order --\n");
+            Console.Write("Welcome to -Enjoyment drinks-. What is your name? ");
+            string strName = Console.ReadLine();
+
+            Console.Write($"\nHi {strName}. What year are you born? ");
+            string sBirthYear = Console.ReadLine();
+            int.TryParse(sBirthYear, out int iBirthYear);
+
+            int iAge = DateTime.Now.Year - iBirthYear;
+            string beerYesNo;
+            string cokeYesNo;
+
+            if (iAge > 17)
+            {
+                Console.Write($"\n{strName}, do you want to order a beer?\nWrite y for yes, or n for no, and press enter: ");
+                beerYesNo = Console.ReadLine();
+                if (beerYesNo == "y")
+                {
+                    Console.Write($"\n{strName}, the order has been done!\n\n");
+                }
+                else if (beerYesNo == "n")
+                {
+                    Console.Write($"\n{strName}, do you want to order a coke?\nWrite y for yes, or n for no, and press enter: ");
+                    cokeYesNo = Console.ReadLine();
+                    if (cokeYesNo == "y")
+                    {
+                        Console.Write($"\n{strName}, the coke has been served.\n\n");
+                    }
+                    else if (cokeYesNo == "n")
+                    {
+                        Console.Write($"\n{strName}, no order options are avaiable.\n\n");
+                    }
+                
+                }
+            }
+
+            else if (iAge < 18)
+            {
+                Console.Write($"\n{strName}, do you want to order a coke?\nWrite y for yes, or n for no, and press enter: ");
+                cokeYesNo = Console.ReadLine();
+                if (cokeYesNo == "y")
+                {
+                    Console.Write($"\n{strName}, the coke has been served.\n\n");
+                }
+                else if (cokeYesNo == "n")
+                    {
+                    Console.Write($"\n{strName}, no order options are avaiable.\n\n");
+                }
+            }
+
 
 
         }
+        
+
+
+
+
+
+
+
+
+        // End methods
+
+
+
+    }
 }
 
