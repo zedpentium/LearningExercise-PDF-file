@@ -34,7 +34,6 @@ namespace LearningExercise_PDF_file
                     Console.WriteLine("\nType in a number from the menu & press enter: ");
 
                     var assignmentChoice = int.Parse(Console.ReadLine() ?? "");
-                    Console.ForegroundColor = ConsoleColor.Green;
                     switch (assignmentChoice)
                     {
                         case 1:
@@ -58,16 +57,16 @@ namespace LearningExercise_PDF_file
                         case 7:
                             RunExercise7();
                             break;
-                       case 8:
+                        case 8:
                             RunExercise8();
                             break;
-                       case 9:
+                        case 9:
                             RunExercise9();
                             break;
-                        /*case 10:
+                        case 10:
                             RunExercise10();
                             break;
-                        case 11:
+                        /*case 11:
                             RunExercise11();
                             break;
                         case 12:
@@ -87,12 +86,11 @@ namespace LearningExercise_PDF_file
                             Environment.Exit(0); // added to quicker finish program and nto have "Hit key to continue" before quit
                             break;
                         default:
-                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("That is not a valid assignment number!");
                             break;
                     }
                     Console.ResetColor();
-                    Console.WriteLine("Hit any key to continue!");
+                    Console.WriteLine("Function done. Hit any key to get back to menu!");
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -270,7 +268,7 @@ namespace LearningExercise_PDF_file
             double dPi = Math.PI;
             double dCircleA = (dRadius * dRadius) * dPi;
 
-            double dSphereV = (4 / (double)3) * dPi * Math.Pow(dRadius,3);
+            double dSphereV = (4 / (double)3) * dPi * Math.Pow(dRadius, 3);
 
             Console.WriteLine($"\nA circle with a radius of {dRadius}.\nArea: {dCircleA}\n");
 
@@ -332,7 +330,7 @@ namespace LearningExercise_PDF_file
                     {
                         Console.Write($"\n{strName}, no order options are avaiable.\n\n");
                     }
-                
+
                 }
             }
 
@@ -345,7 +343,7 @@ namespace LearningExercise_PDF_file
                     Console.Write($"\n{strName}, the coke has been served.\n\n");
                 }
                 else if (cokeYesNo == "n")
-                    {
+                {
                     Console.Write($"\n{strName}, no order options are avaiable.\n\n");
                 }
             }
@@ -353,10 +351,99 @@ namespace LearningExercise_PDF_file
 
 
         }
-        
+
+        private static void RunExercise10()
+        {
+            var re10Choice = true;
+            while (re10Choice)
+            {
+                try
+                {
+                    GoOverSwitch:
+
+                    Console.Clear();
+                    Console.WriteLine("Choose function:\n");
+                    Console.WriteLine("1) Divide 2 numbers you input");
+                    Console.WriteLine("2) Invoke the method used in exercise 4 (The fox text)");
+                    Console.WriteLine("3) Toggle text color between Gray and DarkGreen");
+                    Console.WriteLine("0) End Exercise 10, and return to menu");
+                    Console.Write("\nType in a number & press enter: ");
+
+                    var re10UserInput = int.Parse(Console.ReadLine() ?? "");
+
+                    
+                    switch (re10UserInput)
+                    {
+                        case 1:
+                            Exercise10Method1();
+                            break;
+                        case 2:
+                            RunExerciseFour();
+                            break;
+                        case 3:
+                            if (Console.ForegroundColor == ConsoleColor.Gray)
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            }
+                            else if (Console.ForegroundColor == ConsoleColor.DarkGreen)
+                            {  
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            }
+                            break;
+                        case 0:
+                            re10Choice = false;
+                            goto GoSwiEnd;
+                        default:
+                            Console.WriteLine("That is not a valid assignment number!\nHit any key to try again.");
+                            Console.ReadKey();
+                            goto GoOverSwitch;
+                    }
+                    Console.WriteLine("Done. Hit any key to get to choices!");
+                    Console.ReadKey();
+                GoSwiEnd:;
+                }
+                catch
+                {
+                    Console.WriteLine("That is not a valid assignment number!\nHit any key to try again.");
+                    Console.ReadKey();
+                }
+
+
+            }
+        } // End RunExercise10
+
+        private static void Exercise10Method1() // Method for RunExercise10
+        {
+
+            int int1 = 0;
+            int int2 = 0;
+            string str1 = "";
+            string str2 = "";
+
+            Console.Clear();
+            Console.Write("Enter first integer: ");
+            str1 = Console.ReadLine();
+            int.TryParse(str1, out int1);
+
+            Console.Write("Enter second integer: ");
+            str2 = Console.ReadLine();
+            int.TryParse(str2, out int2);
+
+            while (int2 == 0)
+            {
+                if (int2 == 0)
+                {
+                    Console.Write("\nHey! You can not divide with integer 0.\nPlease write another integer:");
+                    str2 = Console.ReadLine();
+                    int.TryParse(str2, out int2);
+                }
+            }
+
+            Console.Write($"\n{int1} divided by {int2} is: {int1 / (double) int2}\n");
 
 
 
+        }
 
 
 
