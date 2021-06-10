@@ -58,10 +58,10 @@ namespace LearningExercise_PDF_file
                         case 7:
                             RunExercise7();
                             break;
-                       /* case 8:
+                       case 8:
                             RunExercise8();
                             break;
-                        case 9:
+                        /* case 9:
                             RunExercise9();
                             break;
                         case 10:
@@ -278,9 +278,27 @@ namespace LearningExercise_PDF_file
 
         }
 
-        // End methods
+        private static void RunExercise8()
+        {
+            Console.Clear();
+            Console.WriteLine("-- Input decimal number. Output square root, and power of 2 and power of 10--\n");
+            Console.Write("Enter decimal number: ");
+            string str1 = Console.ReadLine();
+            double.TryParse(str1, out double dNrIn);
+
+            double dNrSquare = Math.Sqrt(dNrIn);
+            double dNrPow2 = Math.Pow(dNrIn, 2);
+            double dNrPow10 = Math.Pow(dNrIn, 10);
+
+            Console.WriteLine($"\nSquare root of {dNrIn} is: {dNrSquare}");
+
+            Console.WriteLine($"\n{dNrIn} power of 2 is: {dNrPow2}");
+
+            Console.WriteLine($"\n{dNrIn} power of 10 is: {dNrPow10}\n");
+        }
+            // End methods
 
 
-    }
+        }
 }
 
