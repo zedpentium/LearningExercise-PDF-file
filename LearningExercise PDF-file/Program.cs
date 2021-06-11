@@ -66,10 +66,10 @@ namespace LearningExercise_PDF_file
                         case 10:
                             RunExercise10();
                             break;
-                        /*case 11:
+                        case 11:
                             RunExercise11();
                             break;
-                        case 12:
+                        /*case 12:
                             RunExercise12();
                             break;
                         case 13:
@@ -445,14 +445,72 @@ namespace LearningExercise_PDF_file
 
         }
 
+        private static void RunExercise11()
+        {
+            int int1;
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("-- Get going iteration --\n");
+            Console.Write("Enter an integer above 0: ");
+            string str1 = Console.ReadLine();
+            int.TryParse(str1, out int1);
+
+            while (int1 < 1)
+            {
+                Console.Write("\nNot an integer above 0. Please enter a number above o: ");
+                str1 = Console.ReadLine();
+                int.TryParse(str1, out int1);
+            }
+
+            //Console.WriteLine(int1);
+
+            for (int kort = 0; kort < int1+1; kort++)
+            {
+                if (kort % 2 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"{kort}");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"{kort}");
+                    Console.ResetColor();
+                }
+                
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("--------------------");
+
+            for (int kort = int1; kort > -1; kort--)
+            {
+                if (kort % 2 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"{kort}");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"{kort}");
+                    Console.ResetColor();
+                }
+
+            }
+
+
+        }
 
 
 
-
-        // End methods
-
+            // End methods
 
 
-    }
+
+        }
 }
 
