@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace LearningExercise_PDF_file
 {
@@ -29,6 +30,19 @@ namespace LearningExercise_PDF_file
                     Console.WriteLine("13) Run Exercise 13");
                     Console.WriteLine("14) Run Exercise 14");
                     Console.WriteLine("15) Run Exercise 15");
+                    Console.WriteLine("16) Run Exercise 16");
+                    Console.WriteLine("17) Run Exercise 17");
+                    Console.WriteLine("18) Run Exercise 18");
+                    Console.WriteLine("19) Run Exercise 19");
+                    Console.WriteLine("20) Run Exercise 20");
+                    Console.WriteLine("21) Run Exercise 21");
+                    Console.WriteLine("22) Run Exercise 22");
+                    Console.WriteLine("23) Run Exercise 23");
+                    Console.WriteLine("24) Run Exercise 24");
+                    Console.WriteLine("25) Run Exercise 25");
+                    Console.WriteLine("26) Run Exercise 26");
+                    Console.WriteLine("27) Run Exercise 27");
+                    Console.WriteLine("28) Run Exercise 28");
                     Console.WriteLine("-1) Quit program");
 
                     Console.WriteLine("\nType in a number from the menu & press enter: ");
@@ -69,7 +83,7 @@ namespace LearningExercise_PDF_file
                         case 11:
                             RunExercise11();
                             break;
-                        /*case 12:
+                        case 12:
                             RunExercise12();
                             break;
                         case 13:
@@ -80,11 +94,49 @@ namespace LearningExercise_PDF_file
                             break;
                         case 15:
                             RunExercise15();
-                            break; */
+                            break;
+                        case 16:
+                            RunExercise16();
+                            break;
+                        case 17:
+                            RunExercise17();
+                            break;
+                        case 18:
+                            RunExercise18();
+                            break;
+                        case 19:
+                            RunExercise19();
+                            break;
+                        case 20:
+                            RunExercise20();
+                            break;
+                        case 21:
+                            RunExercise21();
+                            break;
+                        case 22:
+                            RunExercise22();
+                            break;
+                        case 23:
+                            RunExercise23();
+                            break;
+                        case 24:
+                            RunExercise24();
+                            break;
+                        case 25:
+                            RunExercise25();
+                            break;
+                        case 26:
+                            RunExercise26();
+                            break;
+                        case 27:
+                            RunExercise27();
+                            break;
+                        case 28:
+                            RunExercise28();
+                            break;
                         case -1:
                             keepAlive = false;
-                            Environment.Exit(0); // added to quicker finish program and nto have "Hit key to continue" before quit
-                            break;
+                            goto EndofProgram;
                         default:
                             Console.WriteLine("That is not a valid assignment number!");
                             break;
@@ -101,6 +153,9 @@ namespace LearningExercise_PDF_file
                     Console.ResetColor();
                 }
             }
+        EndofProgram:;
+
+
         } // End Main
 
 
@@ -505,12 +560,275 @@ namespace LearningExercise_PDF_file
 
         }
 
+        private static void RunExercise12()
+        {
+            // declare int on 1 line
+            int v, l, upTo = 10;
+
+            Console.Clear();
+            Console.Write("---- Multiplication table for 1 till 10 with nested for-loops. Output with tab ----\n\n");
+
+            for (v = 1; v <= upTo; v++)
+            {
+                for (l = 1; l <= upTo; l++)
+                {
+                    Console.Write("{0}", (v * l));
+                    if (l != upTo)
+                    {
+                        Console.Write("\t");
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+        }
+
+        private static void RunExercise13()
+        {
+            Console.Clear();
+
+            // decleration of several variables
+            int genStart = 1, genEnd = 5, userGuessed = 0, nrOfGuesses = 0;
+
+            Random rdNum = new Random();
+            int theRndGenNr = rdNum.Next(genStart, genEnd); //generate one number between the specified values in the int variables
+
+            Console.Write($"---- Guess a number between {genStart} and {genEnd}: ");
+
+            while (userGuessed != theRndGenNr)
+            {
+                try
+                {
+                    userGuessed = Convert.ToInt32(Console.ReadLine());
+
+                    if (userGuessed > genEnd || userGuessed < genStart)
+
+                    {
+                        Console.WriteLine($"The number you guessed is not between {genStart} and {genEnd}. Guess again: ");
+                        nrOfGuesses--;
+                    }
+
+                    // guess to high
+                    else if (userGuessed > theRndGenNr)
+                    {
+                        Console.WriteLine("Your guess was to big: ");
+                    }
+
+                    // guess to low
+                    else if (userGuessed < theRndGenNr)
+                    {
+                        Console.WriteLine("Your guess was to small: ");
+                    }
+                }
+
+                catch
+                {
+                    Console.WriteLine("Error, the guess must be a integer (number): ");
+                    nrOfGuesses--;
+                }
+                nrOfGuesses++;
+            }
+
+            // When correct guess
+            Console.Clear();
+            Console.WriteLine($"{userGuessed} is correct! Congratulations :).");
+            Console.WriteLine($"You guessed {nrOfGuesses} times.\n\n");
+        }
+
+        private static void RunExercise14()
+        {
+            Console.Clear();
+            Console.WriteLine("---- Store user input int. Then display Sum and Average ---- \n");
+
+            int userInput = 0, intArraySum = 0, arrIndex = 0, nrStoredInts = 0;
+            double intArrayAverage = 0;
+            int[] intArray = new int[100];
+
+            while (userInput != -1)
+            {
+                try
+                {
+                    Console.WriteLine("Enter a number (-1 will stop input and show result): ");
+                    userInput = Convert.ToInt32(Console.ReadLine());
+                    if (userInput == -1) { break; }
+
+                    intArray[arrIndex] = userInput;
+                    arrIndex++;
+                    nrStoredInts++;
+                }
+
+                catch
+                {
+                    Console.WriteLine("Error, the guess must be a integer (number): ");
+                }
+
+            }
+
+            //Array.ForEach(intArray, delegate (int i) { intArraySum += i; });
+            foreach (int item in intArray)
+            {
+                intArraySum += item;
+            }
+
+            intArrayAverage = intArraySum / (double) nrStoredInts;
+
+            Console.WriteLine($"\n\nSum: {intArraySum}\nAverage: {intArrayAverage}\n\n");
+        }
+
+        private static void RunExercise15()
+        {
+            Console.Clear();
+            Console.WriteLine("---- Store user input int. Then display Sum and Average ---- \n");
 
 
-            // End methods
+            int userInput = 0, intArraySum = 0, arrIndex = 0, nrStoredInts = 0;
+            double intArrayAverage = 0;
+            int[] intArray = new int[100];
 
+            //while (userInput != -1)
+            //{
+            try
+            {
+                Console.WriteLine("Enter a number: ");
+                userInput = Convert.ToInt32(Console.ReadLine());
+                /*if (userInput == -1) { break; }
 
+                intArray[arrIndex] = userInput;
+                arrIndex++;
+                nrStoredInts++;
+                */
+            }
+
+            catch
+            {
+                Console.WriteLine("Error, the guess must be a integer (number): ");
+            }
+
+            //}
+
+            for (int kort = userInput; kort > 0; kort--)
+            {
+                if (kort % 2 == 0)
+                {
+                    Console.WriteLine(kort);
+
+                    //Array.ForEach(intArray, delegate (int i) { intArraySum += i; });
+                    /*foreach (int item in intArray)
+                    {
+                        intArraySum += item;
+                    }
+
+                    intArrayAverage = intArraySum / (double)nrStoredInts;
+
+                    Console.WriteLine($"\n\nSum: {intArraySum}\nAverage: {intArrayAverage}\n\n");
+                    */
+                }
+            }
+        }
+
+        private static void RunExercise16()
+        {
 
         }
+        
+        private static void RunExercise17()
+        {
+            Console.Clear();
+            Console.WriteLine("Write a word/numbers and check if its a palindrom (read the same if flipped): ");
+            string ordInput = Console.ReadLine();
+
+            bool svar = arVandbart(ordInput); // Yes or No if palindrom from internal method "arVandbart"
+
+            if (svar == true)
+            {
+                Console.Write("\nYES, " + ordInput + " IS a palindrom.\n\n");
+            }
+            else if (svar == false)
+            {
+                Console.Write("\nNO, " + ordInput + " is NOT a palindrom\n\n).");
+            }
+
+            // metod som tar strängen från användaren "ordInput", och tecken för tecken bakifrån bygger upp nytt ord/mening
+            // sparar detta i strängen "tvartOm" och jämnför om "tvartOm" är samma som "ordInput".
+            // och sedan ger tillbaka svaret som true eller false
+            // som sedan ovan sparas i bool-variabeln "svar" som sedan kollar i en If-loop
+            // Ignorerar stora eller små bokstäver 
+            static bool arVandbart(string ordInput)
+            {
+                string tempCopy = ordInput;
+                string tvartOm = null;
+                while (ordInput.Length > 0)
+                {
+                    tvartOm = string.Concat(tvartOm, ordInput.LastOrDefault());
+                    ordInput = ordInput.Remove(ordInput.Length - 1);
+                }
+                return tempCopy.Equals(tvartOm, StringComparison.OrdinalIgnoreCase); // check if same, ignore small and big letters, gives answer as boolean
+
+            }
+        }
+
+        private static void RunExercise18()
+        {
+
+        }
+
+        private static void RunExercise19()
+        {
+
+        }
+
+        private static void RunExercise20()
+        {
+
+        }
+
+        private static void RunExercise21()
+        {
+
+        }
+
+        private static void RunExercise22()
+        {
+
+        }
+
+        private static void RunExercise23()
+        {
+
+        }
+
+        private static void RunExercise24()
+        {
+
+        }
+
+        private static void RunExercise25()
+        {
+
+        }
+
+        private static void RunExercise26()
+        {
+
+        }
+
+        private static void RunExercise27()
+        {
+
+        }
+
+        private static void RunExercise28()
+        {
+
+        }
+
+
+
+
+        // End methods
+
+
+
+    }
 }
 
