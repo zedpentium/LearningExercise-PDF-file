@@ -14,38 +14,38 @@ namespace LearningExercise_PDF_file
                 {
                     Console.Clear();
                     Console.WriteLine("----* Welcome to Eric R's Learning Exercise PDF program *----\n");
-                    Console.WriteLine("Choose function:\n");
-                    Console.WriteLine("1) Run Exercise 1");
-                    Console.WriteLine("2) Run Exercise 2");
-                    Console.WriteLine("3) Run Exercise 3");
-                    Console.WriteLine("4) Run Exercise 4");
-                    Console.WriteLine("5) Run Exercise 5");
-                    Console.WriteLine("6) Run Exercise 6");
-                    Console.WriteLine("7) Run Exercise 7");
-                    Console.WriteLine("8) Run Exercise 8");
-                    Console.WriteLine("9) Run Exercise 9");
-                    Console.WriteLine("10) Run Exercise 10");
-                    Console.WriteLine("11) Run Exercise 11");
-                    Console.WriteLine("12) Run Exercise 12");
-                    Console.WriteLine("13) Run Exercise 13");
-                    Console.WriteLine("14) Run Exercise 14");
-                    Console.WriteLine("15) Run Exercise 15");
-                    Console.WriteLine("16) Run Exercise 16");
-                    Console.WriteLine("17) Run Exercise 17");
-                    Console.WriteLine("18) Run Exercise 18");
-                    Console.WriteLine("19) Run Exercise 19");
-                    Console.WriteLine("20) Run Exercise 20");
-                    Console.WriteLine("21) Run Exercise 21");
-                    Console.WriteLine("22) Run Exercise 22");
-                    Console.WriteLine("23) Run Exercise 23");
-                    Console.WriteLine("24) Run Exercise 24");
-                    Console.WriteLine("25) Run Exercise 25");
-                    Console.WriteLine("26) Run Exercise 26");
-                    Console.WriteLine("27) Run Exercise 27");
-                    Console.WriteLine("28) Run Exercise 28");
-                    Console.WriteLine("-1) Quit program");
+                    Console.WriteLine("Enter exercise number 1-28 (-1 to quit program)");
+                    //Console.WriteLine("1) Run Exercise 1");
+                    //Console.WriteLine("2) Run Exercise 2");
+                    //Console.WriteLine("3) Run Exercise 3");
+                    //Console.WriteLine("4) Run Exercise 4");
+                    //Console.WriteLine("5) Run Exercise 5");
+                    //Console.WriteLine("6) Run Exercise 6");
+                    //Console.WriteLine("7) Run Exercise 7");
+                    //Console.WriteLine("8) Run Exercise 8");
+                    //Console.WriteLine("9) Run Exercise 9");
+                    //Console.WriteLine("10) Run Exercise 10");
+                    //Console.WriteLine("11) Run Exercise 11");
+                    //Console.WriteLine("12) Run Exercise 12");
+                    //Console.WriteLine("13) Run Exercise 13");
+                    //Console.WriteLine("14) Run Exercise 14");
+                    //Console.WriteLine("15) Run Exercise 15");
+                    //Console.WriteLine("16) Run Exercise 16");
+                    //Console.WriteLine("17) Run Exercise 17");
+                    //Console.WriteLine("18) Run Exercise 18");
+                    //Console.WriteLine("19) Run Exercise 19");
+                    //Console.WriteLine("20) Run Exercise 20");
+                    //Console.WriteLine("21) Run Exercise 21");
+                    //Console.WriteLine("22) Run Exercise 22");
+                    //Console.WriteLine("23) Run Exercise 23");
+                    //Console.WriteLine("24) Run Exercise 24");
+                    //Console.WriteLine("25) Run Exercise 25");
+                    //Console.WriteLine("26) Run Exercise 26");
+                    //Console.WriteLine("27) Run Exercise 27");
+                    //Console.WriteLine("28) Run Exercise 28");
+                    //Console.WriteLine("-1) Quit program");
 
-                    Console.WriteLine("\nType in a number from the menu & press enter: ");
+                    Console.WriteLine("Type in a number & press enter: ");
 
                     var assignmentChoice = int.Parse(Console.ReadLine() ?? "");
                     switch (assignmentChoice)
@@ -681,8 +681,8 @@ namespace LearningExercise_PDF_file
             Console.WriteLine("---- Store user input int. Then display Sum and Average ---- \n");
 
 
-            int userInput = 0, intArraySum = 0, arrIndex = 0, nrStoredInts = 0;
-            double intArrayAverage = 0;
+            int userInput = 0;//, intArraySum = 0, arrIndex = 0, nrStoredInts = 0;
+            //double intArrayAverage = 0;
             int[] intArray = new int[100];
 
             //while (userInput != -1)
@@ -745,7 +745,7 @@ namespace LearningExercise_PDF_file
             }
             else if (svar == false)
             {
-                Console.Write("\nNO, " + ordInput + " is NOT a palindrom\n\n).");
+                Console.Write("\nNO, " + ordInput + " is NOT a palindrom.\n\n");
             }
 
             // metod som tar strängen från användaren "ordInput", och tecken för tecken bakifrån bygger upp nytt ord/mening
@@ -769,11 +769,94 @@ namespace LearningExercise_PDF_file
 
         private static void RunExercise18()
         {
+            Console.Clear();
+            Console.WriteLine("---- Get going with arrays ---- \n");
 
+            // Variables & arrays
+            int nrOfArrElem = 10, el = 0;
+            int[] intArray = new int[nrOfArrElem];
+            double[] dblArray = new double[nrOfArrElem];
+
+            // 1-100 random generator
+            static int RandomGenerator()
+            {
+                Random rnd = new Random();
+                int t100 = rnd.Next(1, 101);
+
+                return t100;
+            }
+
+            // for-loop int array
+            for (el = 0; el < nrOfArrElem; el++)
+            {
+                intArray[el] = RandomGenerator();
+            }
+
+            // for-loop double array
+            for (el = 0; el < nrOfArrElem; el++)
+            {
+                dblArray[el] = (1 / Convert.ToDouble(intArray[el]));
+            }
+
+            Console.WriteLine("Here are int array with random numbers from 1 to 100:");
+
+            // foreach-loop for int and double array. Output to screen
+            foreach (int itemInt in intArray)
+            {
+                Console.WriteLine(itemInt.ToString());
+            }
+
+            Console.WriteLine("\n\nHere are double array with 1/intarray[index] on same index in double array as in the int array:");
+
+            foreach (double itemDouble in dblArray)
+            {
+                Console.WriteLine(itemDouble.ToString());
+            }
+            Console.WriteLine("");
         }
 
         private static void RunExercise19()
         {
+            Console.Clear();
+            Console.WriteLine("---- Calculate change ---- \n");
+
+            int price = 217;
+            int[] intArray = new int[] { 500, 200, 100, 50, 20, 10, 5, 1 };
+            int iChange = 0;
+
+            for (int i = 0; i < intArray.Length; i++)
+            {
+
+            }
+            int fivehunderedBill = ((change % quarter) / dime);
+            int twohunderedBill = ((change % quarter) / dime);
+            int onehunderedBill = ((change % quarter) / dime);
+            int fifthyBill = ((change % quarter) / dime);
+            int twentyBill = ((change % quarter) / dime);
+            int tenCoin = ((change % quarter) / dime);
+            int fiveCoin = ((change % quarter) / dime);
+            int twoCoin = ((change % quarter) / dime);
+            int oneCoin = ((change % quarter) / dime);
+
+            int anPennies = ((((change % quarter) % dime) % nickel) / pennies);
+
+            Console.WriteLine($"Money to pay: {price} kr");
+            Console.Write("Enter the sum customer pay with: ");
+            int custPayInput = int.Parse(Console.ReadLine()) + " kr";
+            iChange = price - custPayInput;
+            Console.WriteLine($"Calculated change: {iChange} kr");
+            Console.WriteLine("\n--- Currency change back to customer ---");
+            Console.WriteLine($"500 bill(s): {500}");
+            Console.WriteLine($"200 bill(s): {200}");
+            Console.WriteLine($"100 bill(s): {100}");
+            Console.WriteLine($"50 bill(s): {50}");
+            Console.WriteLine($"20 bill(s): {20}");
+            Console.WriteLine($"10 coin(s): {10}");
+            Console.WriteLine($"5 coin(s): {5}");
+            Console.WriteLine($"2 coin(s): {5}");
+            Console.WriteLine($"1 coin(s): {1}");
+
+
 
         }
 
