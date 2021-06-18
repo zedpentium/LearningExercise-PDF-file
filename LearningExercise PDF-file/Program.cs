@@ -728,7 +728,8 @@ namespace LearningExercise_PDF_file
 
         private static void RunExercise16()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Not Done ---- \n");
         }
         
         private static void RunExercise17()
@@ -822,7 +823,7 @@ namespace LearningExercise_PDF_file
 
             int price = 217;
             int[] intCurrValue = new int[] { 500, 200, 100, 50, 20, 10, 5, 2, 1 };
-            int[] intAmount = new int[9];
+            int[] intAmount = new int[intCurrValue.Length];
 
             int iChange;
 
@@ -863,47 +864,89 @@ namespace LearningExercise_PDF_file
 
         private static void RunExercise20()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Not Done ---- \n");
         }
 
         private static void RunExercise21()
         {
+            Console.Clear();
+            Console.WriteLine("---- Input commaseparated, get min max and average ---- \n");
+
+            string userCSV = Console.ReadLine();
+            int intCSVSum = 0;
+            double intCSVValueAverage = 0;
+
+            string[] stringArray = userCSV.Split(',');
+
+            int[] intCSV = new int[stringArray.Length];
+
+            for (int i = 0; i < stringArray.Length; i++)
+            {
+                try
+                {
+                    intCSV[i] = int.Parse(stringArray[i]);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e.Message);
+                }
+            }
+
+            foreach (int item in intCSV)
+            {
+                intCSVSum += item;
+                
+            }
+
+            int intCSVMax = intCSV.Max();
+            int intCSVMin = intCSV.Min();
+            intCSVValueAverage = intCSVSum / (double)intCSV.Length;
+
+            Console.WriteLine($" Min is: {intCSVMin}, Max is: {intCSVMax}, Average is: {intCSVValueAverage}\n\n");
 
         }
 
         private static void RunExercise22()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Input commaseparated, get min max and average ---- \n");
         }
 
         private static void RunExercise23()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Not Done ---- \n");
         }
 
         private static void RunExercise24()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Not Done ---- \n");
         }
 
         private static void RunExercise25()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Not Done ---- \n");
         }
 
         private static void RunExercise26()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Not Done ---- \n");
         }
 
         private static void RunExercise27()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Not Done ---- \n");
         }
 
         private static void RunExercise28()
         {
-
+            Console.Clear();
+            Console.WriteLine("---- Not Done ---- \n");
         }
 
 
