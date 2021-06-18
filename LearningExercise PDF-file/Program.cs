@@ -138,7 +138,7 @@ namespace LearningExercise_PDF_file
                             keepAlive = false;
                             goto EndofProgram;
                         default:
-                            Console.WriteLine("That is not a valid assignment number!");
+                            Console.WriteLine("That is not a valid exercise number!");
                             break;
                     }
                     Console.ResetColor();
@@ -640,9 +640,9 @@ namespace LearningExercise_PDF_file
             Console.Clear();
             Console.WriteLine("---- Store user input int. Then display Sum and Average ---- \n");
 
-            int userInput = 0, intArraySum = 0, arrIndex = 0, nrStoredInts = 0;
-            double intArrayAverage = 0;
-            int[] intArray = new int[100];
+            int userInput = 0, intCurrValueSum = 0, arrIndex = 0, nrStoredInts = 0;
+            double intCurrValueAverage = 0;
+            int[] intCurrValue = new int[100];
 
             while (userInput != -1)
             {
@@ -652,7 +652,7 @@ namespace LearningExercise_PDF_file
                     userInput = Convert.ToInt32(Console.ReadLine());
                     if (userInput == -1) { break; }
 
-                    intArray[arrIndex] = userInput;
+                    intCurrValue[arrIndex] = userInput;
                     arrIndex++;
                     nrStoredInts++;
                 }
@@ -664,15 +664,15 @@ namespace LearningExercise_PDF_file
 
             }
 
-            //Array.ForEach(intArray, delegate (int i) { intArraySum += i; });
-            foreach (int item in intArray)
+            //Array.ForEach(intCurrValue, delegate (int i) { intCurrValueSum += i; });
+            foreach (int item in intCurrValue)
             {
-                intArraySum += item;
+                intCurrValueSum += item;
             }
 
-            intArrayAverage = intArraySum / (double) nrStoredInts;
+            intCurrValueAverage = intCurrValueSum / (double) nrStoredInts;
 
-            Console.WriteLine($"\n\nSum: {intArraySum}\nAverage: {intArrayAverage}\n\n");
+            Console.WriteLine($"\n\nSum: {intCurrValueSum}\nAverage: {intCurrValueAverage}\n\n");
         }
 
         private static void RunExercise15()
@@ -681,9 +681,9 @@ namespace LearningExercise_PDF_file
             Console.WriteLine("---- Store user input int. Then display Sum and Average ---- \n");
 
 
-            int userInput = 0;//, intArraySum = 0, arrIndex = 0, nrStoredInts = 0;
-            //double intArrayAverage = 0;
-            int[] intArray = new int[100];
+            int userInput = 0;//, intCurrValueSum = 0, arrIndex = 0, nrStoredInts = 0;
+            //double intCurrValueAverage = 0;
+            int[] intCurrValue = new int[100];
 
             //while (userInput != -1)
             //{
@@ -693,7 +693,7 @@ namespace LearningExercise_PDF_file
                 userInput = Convert.ToInt32(Console.ReadLine());
                 /*if (userInput == -1) { break; }
 
-                intArray[arrIndex] = userInput;
+                intCurrValue[arrIndex] = userInput;
                 arrIndex++;
                 nrStoredInts++;
                 */
@@ -712,15 +712,15 @@ namespace LearningExercise_PDF_file
                 {
                     Console.WriteLine(kort);
 
-                    //Array.ForEach(intArray, delegate (int i) { intArraySum += i; });
-                    /*foreach (int item in intArray)
+                    //Array.ForEach(intCurrValue, delegate (int i) { intCurrValueSum += i; });
+                    /*foreach (int item in intCurrValue)
                     {
-                        intArraySum += item;
+                        intCurrValueSum += item;
                     }
 
-                    intArrayAverage = intArraySum / (double)nrStoredInts;
+                    intCurrValueAverage = intCurrValueSum / (double)nrStoredInts;
 
-                    Console.WriteLine($"\n\nSum: {intArraySum}\nAverage: {intArrayAverage}\n\n");
+                    Console.WriteLine($"\n\nSum: {intCurrValueSum}\nAverage: {intCurrValueAverage}\n\n");
                     */
                 }
             }
@@ -774,7 +774,7 @@ namespace LearningExercise_PDF_file
 
             // Variables & arrays
             int nrOfArrElem = 10, el = 0;
-            int[] intArray = new int[nrOfArrElem];
+            int[] intCurrValue = new int[nrOfArrElem];
             double[] dblArray = new double[nrOfArrElem];
 
             // 1-100 random generator
@@ -789,24 +789,24 @@ namespace LearningExercise_PDF_file
             // for-loop int array
             for (el = 0; el < nrOfArrElem; el++)
             {
-                intArray[el] = RandomGenerator();
+                intCurrValue[el] = RandomGenerator();
             }
 
             // for-loop double array
             for (el = 0; el < nrOfArrElem; el++)
             {
-                dblArray[el] = (1 / Convert.ToDouble(intArray[el]));
+                dblArray[el] = (1 / Convert.ToDouble(intCurrValue[el]));
             }
 
             Console.WriteLine("Here are int array with random numbers from 1 to 100:");
 
             // foreach-loop for int and double array. Output to screen
-            foreach (int itemInt in intArray)
+            foreach (int itemInt in intCurrValue)
             {
                 Console.WriteLine(itemInt.ToString());
             }
 
-            Console.WriteLine("\n\nHere are double array with 1/intarray[index] on same index in double array as in the int array:");
+            Console.WriteLine("\n\nHere are double array with 1/intCurrValue[index] on same index in double array as in the int array:");
 
             foreach (double itemDouble in dblArray)
             {
@@ -821,43 +821,44 @@ namespace LearningExercise_PDF_file
             Console.WriteLine("---- Calculate change ---- \n");
 
             int price = 217;
-            int[] intArray = new int[] { 500, 200, 100, 50, 20, 10, 5, 1 };
-            int iChange = 0;
+            int[] intCurrValue = new int[] { 500, 200, 100, 50, 20, 10, 5, 2, 1 };
+            int[] intAmount = new int[9];
 
-            for (int i = 0; i < intArray.Length; i++)
-            {
-
-            }
-            int fivehunderedBill = ((change % quarter) / dime);
-            int twohunderedBill = ((change % quarter) / dime);
-            int onehunderedBill = ((change % quarter) / dime);
-            int fifthyBill = ((change % quarter) / dime);
-            int twentyBill = ((change % quarter) / dime);
-            int tenCoin = ((change % quarter) / dime);
-            int fiveCoin = ((change % quarter) / dime);
-            int twoCoin = ((change % quarter) / dime);
-            int oneCoin = ((change % quarter) / dime);
-
-            int anPennies = ((((change % quarter) % dime) % nickel) / pennies);
+            int iChange;
 
             Console.WriteLine($"Money to pay: {price} kr");
             Console.Write("Enter the sum customer pay with: ");
-            int custPayInput = int.Parse(Console.ReadLine()) + " kr";
-            iChange = price - custPayInput;
+            int custPayInput = int.Parse(Console.ReadLine());
+            iChange = custPayInput - price;
             Console.WriteLine($"Calculated change: {iChange} kr");
-            Console.WriteLine("\n--- Currency change back to customer ---");
-            Console.WriteLine($"500 bill(s): {500}");
-            Console.WriteLine($"200 bill(s): {200}");
-            Console.WriteLine($"100 bill(s): {100}");
-            Console.WriteLine($"50 bill(s): {50}");
-            Console.WriteLine($"20 bill(s): {20}");
-            Console.WriteLine($"10 coin(s): {10}");
-            Console.WriteLine($"5 coin(s): {5}");
-            Console.WriteLine($"2 coin(s): {5}");
-            Console.WriteLine($"1 coin(s): {1}");
+            Console.WriteLine("\n--- Currency change back to customer ---\n");
 
+            int currencyValue;
 
+            try
+            {
+                for (int i = 0; i < intCurrValue.Length; i++)
+                {
+                    if (iChange >= intCurrValue[i])
+                    {
+                        currencyValue = iChange / intCurrValue[i];
+                        iChange = iChange - (currencyValue * intCurrValue[i]);
+                        intAmount[i] = currencyValue;
+                    }
+                    else
+                    {
+                        intAmount[i] = 0;
+                    }
 
+                    Console.WriteLine($"{intAmount[i]} of {intCurrValue[i]}");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+
+            Console.WriteLine("\n\n");
         }
 
         private static void RunExercise20()
