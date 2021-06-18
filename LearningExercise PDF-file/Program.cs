@@ -142,7 +142,7 @@ namespace LearningExercise_PDF_file
                             break;
                     }
                     Console.ResetColor();
-                    Console.WriteLine("Function done. Hit any key to get back to menu!");
+                    Console.WriteLine("\nFunction done. Hit any key to get back to menu!");
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -939,7 +939,49 @@ namespace LearningExercise_PDF_file
         private static void RunExercise23()
         {
             Console.Clear();
-            Console.WriteLine("---- Not Done ---- \n");
+            Console.WriteLine("---- Generate 7 unique numbers into an array. between 1-40. only be 1 time in array,");
+            Console.WriteLine("generated using Random-class and should be different each time u run program ---- \n");
+            int randIntArrCount = 7;
+            int rndNr;
+            int[] randIntArr = new int[randIntArrCount];
+            Random rndAInt = new Random(DateTime.Now.Millisecond);
+            bool sevenUniqueNr = false;
+            bool isUniqueCheck;
+
+            do
+            {
+                rndNr = rndAInt.Next(1, 41);
+                randIntArr[0] = rndNr;
+
+                for (int i = 1; i < randIntArrCount; i++)
+                {
+                    rndNr = rndAInt.Next(1, 41);
+                    isUniqueCheck = false;
+
+                    do
+                    {
+                    if (randIntArr.Contains(rndNr))
+                    {
+                        rndNr = rndAInt.Next(1, 41);
+                        isUniqueCheck = false;
+                    }
+                    else
+                    {
+                        randIntArr[i] = rndNr;
+                        isUniqueCheck = true;
+                    }
+                    } while (isUniqueCheck == false);
+                }
+
+                sevenUniqueNr = true;
+
+            } while (sevenUniqueNr == false);
+
+            foreach (int item in randIntArr)
+            {
+                Console.WriteLine(item);
+            }
+
         }
 
         private static void RunExercise24()
