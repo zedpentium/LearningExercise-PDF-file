@@ -910,7 +910,30 @@ namespace LearningExercise_PDF_file
         private static void RunExercise22()
         {
             Console.Clear();
-            Console.WriteLine("---- Input commaseparated, get min max and average ---- \n");
+            Console.WriteLine("---- Censur swearwords ---- \nWrite a sentence with swearword(s): " + "\n");
+
+            string[] listOfSwearWords = new string[] { "fuck", "whore", "cunt", "asshole"};
+            string userSentense = Console.ReadLine();
+            string censurSentense = userSentense;
+            string wordCensor = null;
+
+            for (int i = 0; i < listOfSwearWords.Length; i++)
+            {
+                wordCensor = "";
+                if (censurSentense.Contains(listOfSwearWords[i]))
+                {
+                    //wordLenght = listOfSwearWords[i].Length;
+                    for (int itwo = 0; itwo < listOfSwearWords[i].Length; itwo++)
+                    {
+                        wordCensor = wordCensor + "*";
+                    }
+
+                    censurSentense = censurSentense.Replace(listOfSwearWords[i] , wordCensor);
+                }
+
+            }
+
+            Console.WriteLine($"\nThe censored sentence are:\n{censurSentense}\n\n");
         }
 
         private static void RunExercise23()
